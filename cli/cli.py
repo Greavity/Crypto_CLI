@@ -30,8 +30,8 @@ parser.add_argument('--start_date', help='start date')
 parser.add_argument('--end_date', help='end date')
 args = parser.parse_args()
 
-s = '01-' + args.start_date
-e = '01-' + args.end_date
+s = args.start_date
+e = args.end_date
 
 start = s.split('-')
 end = e.split('-')
