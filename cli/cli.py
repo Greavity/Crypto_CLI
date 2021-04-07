@@ -39,16 +39,13 @@ end = e.split('-')
 sdate = date_formatting(start)
 edate = date_formatting(end)
 
-i = int(start[1])
-while i <= int(end[1]):
-    i = + 1
-    delta = edate - sdate
-    for i in range(delta.days + 1):
-        time.sleep(0.1)
-        day = str(sdate + timedelta(days=i))
-        ohlc = client.candles('btc-bitcoin', start=day)
-        for d in ohlc:
-            close = d['close']
-            prices.append(close)
-    aver = average_price(prices)
-    print(aver)
+delta = edate - sdate
+for i in range(delta.days + 1):
+    time.sleep(0.1)
+    day = str(sdate + timedelta(days=i))
+    ohlc = client.candles('btc-bitcoin', start=day)
+    for d in ohlc:
+        close = d['close']
+        prices.append(close)
+aver = average_price(prices)
+print(aver)
